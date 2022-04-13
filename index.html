@@ -7,18 +7,30 @@
     <title>SVG scripting: Conway's game of life</title>
   </head>
   <body>
-    <div id="app"></div>
-    <svg id="mainsvg" width="200" height="200" version="1.1" xmlns="http://www.w3.org/2000/svg"></svg>
+    <svg
+      id="mainsvg"
+      width="200"
+      height="200"
+      version="1.1"
+      xmlns="http://www.w3.org/2000/svg"
+    ></svg>
 
     <section class="controls">
       <ul class="buttons">
         <button id="start">Start</button>
-        <button id="reset">Reset</button>
+        <button id="restart">Restart</button>
         <button id="stop">Stop</button>
       </ul>
       <ul class="buttons">
         <label id="chance_label" for="cell_chance"></label>
-        <input type="range" min="0" max="1" step="0.05" name="cell_chance" id="cell_chance" />
+        <input
+          type="range"
+          min="0"
+          max="1"
+          step="0.05"
+          name="cell_chance"
+          id="cell_chance"
+        />
       </ul>
     </section>
     <script defer type="module" src="/main.js"></script>
