@@ -43,6 +43,12 @@ const rows_count = Math.floor(canvas_width / cell_size);
 const cols_count = Math.floor(canvas_height / cell_size);
 let cell_chance = 0.33;
 
+const rules = {
+  underpopulation: 2,
+  overpopulation: 4,
+  revives: 3,
+};
+
 const svg = document.querySelector("#mainsvg");
 svg.setAttributeNS(null, "width", canvas_width.toString());
 svg.setAttributeNS(null, "height", canvas_height.toString());
@@ -110,12 +116,14 @@ function simulate() {
         }
       });
 
-      if (n < 2 || n > 3) {
+      const { underpopulation, overpopulation, revives } = rules;
+
+      if (n < underpopulation || n > overpopulation) {
         // cell dies by underpopulation or cell dies by overpopulation
         cells[x][y].setAlive(false);
       }
 
-      if (n == 3) {
+      if (n == revives) {
         // Each cell with exactly three living neighbors comes to life
         cells[x][y].setAlive(true);
       }
